@@ -10,7 +10,7 @@ int handle_conversion(const char *format, va_list args)
 	int count = 0;
 
 	if (*format == '%')
-		count += _putchar('%');
+		count += print_percent();
 	else if (*format == 'c')
 		count += print_char(va_arg(args, int));
 	else if (*format == 's')

@@ -13,6 +13,15 @@ int print_strings(char *str)
 	return (write(1, str, len));
 }
 /**
+ * print_percent - print percent
+ * Return: 1
+ */
+int print_percent()
+{
+	char x = '%';
+	return (write(1, &x, 1));
+}
+/**
  * print_char - handle format specifer c
  * @c: character
  * Return: 1 for single charater printed

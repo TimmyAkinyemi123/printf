@@ -41,7 +41,8 @@ int print_bin(unsigned int num)
 
 	if (num == 0)
 	{
-		_putchar('0');
+		buffer[index++] = '0';
+		write(1, buffer, index);
 		return (1);
 	}
 	mask = 1u << (sizeof(unsigned int) * 8 - 1);
