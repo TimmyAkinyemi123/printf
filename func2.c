@@ -56,6 +56,7 @@ int print_bin(unsigned int num)
 		count++;
 		mask >>= 1;
 	}
+	buffer[index] = '\0';
 	write(1, buffer, index);
 	return (count);
 }

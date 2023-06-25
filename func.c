@@ -25,6 +25,7 @@ int print_int(int num)
 	if (num == 0)
 	{
 		buffer[index++] = '0';
+		buffer[index] = '\0';
 		write(1, buffer, index);
 		return (1);
 	}
@@ -42,6 +43,7 @@ int print_int(int num)
 		count++;
 		num /= 10;
 	}
+	buffer[index] = '\0';
 	reverse_string(buffer, index);
 	if (neg == '-')
 	{

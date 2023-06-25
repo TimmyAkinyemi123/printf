@@ -16,9 +16,10 @@ int print_strings(char *str)
  * print_percent - print percent
  * Return: 1
  */
-int print_percent()
+int print_percent(void)
 {
 	char x = '%';
+
 	return (write(1, &x, 1));
 }
 /**
