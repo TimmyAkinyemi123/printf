@@ -8,6 +8,8 @@ int print_strings(char *str)
 {
 	int len = 0;
 
+	if (str == NULL)
+		str = "null";
 	while (str[len])
 		len++;
 	return (write(1, str, len));
