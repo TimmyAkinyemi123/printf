@@ -44,8 +44,8 @@ int handle_flags(const char *format, va_list args, int count)
 }
 
 /**
- * handle_lenmod - handle length modifiers for conversion specifiers
- * @lenmod: length modifier character ('l' or 'h')
+ * handle_len_mod - handle length modifiers for conversion specifiers
+ * @len_mod: length modifier character ('l' or 'h')
  * @format: format string
  * @args: argument list
  * @count: number of characters printed

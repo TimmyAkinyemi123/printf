@@ -60,7 +60,7 @@ int get_length_float(double num)
 }
 
 /**
- * get_length_unsigned - gives the length of unsigned integers
+ * get_length_un - gives the length of unsigned integers
  * @num: unsigned integer
  * Return: length
  */

@@ -47,6 +47,8 @@ int handle_conversion(const char *format, va_list args)
 }
 /**
  * not_ld - else option when not length modifier
+ * @len_mod: length modifier
+ * @format: format string
  * Return: count
  */
 int not_ld(char len_mod, const char *format)
