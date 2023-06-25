@@ -1,13 +1,12 @@
 #include "main.h"
 /**
  * print_strings - for format specifier s
- * @args: variable argument list
+ * @str: string
  * Return: number of characters printed
  */
-int print_strings(va_list args)
+int print_strings(char *str)
 {
 	int len = 0;
-	char *str = va_arg(args, char*);
 
 	if (str == NULL)
 		str = "(nil)";
@@ -26,13 +25,11 @@ int print_percent(void)
 }
 /**
  * print_char - handle format specifer c
- * @args: variable argument list
+ * @c: character
  * Return: 1 for single charater printed
  */
-int print_char(va_list args)
+int print_char(char c)
 {
-	char c = va_arg(args, int);
-
 	_putchar(c);
 	return (1);
 }

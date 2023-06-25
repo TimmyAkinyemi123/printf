@@ -10,11 +10,11 @@ int handle_conversion(const char *format, va_list args)
 	int count = 0;
 
 	if (*format == '%')
-		count += print_percent();
+		count += _putchar('%');
 	else if (*format == 'c')
-		count += _putchar(va_arg(args, int));
+		count += print_char(va_arg(args, int));
 	else if (*format == 's')
-		count += print_strings(args);
+		count += print_strings(va_arg(args, char *));
 	else if (*format == 'S')
 		count += print_nonprintable(args);
 	else if (*format == 'd' || *format == 'i')
