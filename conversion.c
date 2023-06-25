@@ -70,13 +70,16 @@ int not_ld(char len_mod, const char *format)
 int print_reversed_string(char *str)
 {
 	int count = 0, i;
-	int len = _strlen(str);
-
-	for (i = len - 1; i >= 0; i--)
+	char *ptr = str;
+	
+	while (*ptr != '\0')
 	{
-		_putchar(str[i]);
 		count++;
+		ptr++;
 	}
+
+	for (i = count - 1; i >= 0; i--)
+		_putchar(str[i]);
 	return (count);
 }
 /**
