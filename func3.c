@@ -8,20 +8,9 @@ int print_strings(char *str)
 {
 	int len = 0;
 
-	if (str == NULL)
-		str = "(nil)";
 	while (str[len])
 		len++;
 	return (write(1, str, len));
-}
-/**
- * print_percent - print percentage sign
- * Return: 1
- */
-int print_percent(void)
-{
-	_putchar('%');
-	return (1);
 }
 /**
  * print_char - handle format specifer c
@@ -30,8 +19,7 @@ int print_percent(void)
  */
 int print_char(char c)
 {
-	_putchar(c);
-	return (1);
+	return (write(1, &c, 1));
 }
 /**
  * print_nonprintable - handles format specifer S

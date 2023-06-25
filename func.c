@@ -45,7 +45,7 @@ int print_int(int num)
 	reverse_string(buffer, index);
 	if (neg == '-')
 	{
-		_putchar('-');
+		write(1, &neg, 1);
 		write(1, buffer, index);
 	}
 	else
