@@ -32,7 +32,6 @@ int get_length_int(int num)
 int get_length_float(double num)
 {
 	int length = 0;
-	const double EPSILON;
 	int int_part;
 	double decimal_part;
 
@@ -47,7 +46,6 @@ int get_length_float(double num)
 
 	/*Extract the decimal part*/
 	decimal_part = num - int_part;
-	EPSILON = 0.000000001;
 	if (decimal_part > EPSILON)
 	{
 		length++;
@@ -66,7 +64,7 @@ int get_length_float(double num)
  * @num: unsigned integer
  * Return: length
  */
-int get_length_unsigned(unsigned int num)
+int get_length_un(unsigned int num)
 {
 	int length = 0;
 
