@@ -20,7 +20,7 @@ int _putchar(char c)
 int print_int(int num)
 {
 	int index = 0, count = 0;
-	char neg, buffer[BUF_SIZE];
+	char neg = '\0', buffer[BUF_SIZE];
 
 	if (num == 0)
 	{
