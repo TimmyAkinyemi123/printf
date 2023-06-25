@@ -19,8 +19,8 @@ int _putchar(char c)
  */
 int print_int(int num)
 {
-	int index = 0, count = 0, digit;
-	char dig_char, neg, buffer[BUF_SIZE];
+	int index = 0, count = 0;
+	char neg, buffer[BUF_SIZE];
 
 	if (num == 0)
 	{
@@ -36,9 +36,7 @@ int print_int(int num)
 	}
 	while (num != 0)
 	{
-		digit = num % 10;
-		dig_char = ('0' + digit);
-		buffer[index++] = dig_char;
+		buffer[index++] = (num % 10) + '0';
 		count++;
 		num /= 10;
 	}
