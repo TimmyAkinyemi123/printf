@@ -71,7 +71,7 @@ int print_reversed_string(char *str)
 {
 	int count = 0, i;
 	char *ptr = str;
-	
+
 	while (*ptr != '\0')
 	{
 		count++;
