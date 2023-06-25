@@ -9,7 +9,7 @@ int print_strings(char *str)
 	int len = 0;
 
 	if (str == NULL)
-		str = "null";
+		str = "(null)";
 	while (str[len])
 		len++;
 	return (write(1, str, len));
@@ -20,9 +20,7 @@ int print_strings(char *str)
  */
 int print_percent(void)
 {
-	char x = '%';
-
-	return (write(1, &x, 1));
+	return (write(1, "%%", 1));
 }
 /**
  * print_char - handle format specifer c
