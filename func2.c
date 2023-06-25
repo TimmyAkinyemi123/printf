@@ -47,6 +47,8 @@ int print_bin(unsigned int num)
 	}
 	mask = 1u << (sizeof(unsigned int) * 8 - 1);
 
+	while ((mask & num) == 0 && mask > 1)
+		mask >>= 1;
 	while (mask > 0)
 	{
 		if (num & mask)
