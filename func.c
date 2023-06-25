@@ -25,13 +25,13 @@ int print_int(int num)
 	if (num == 0)
 	{
 		buffer[index++] = '0';
+		buffer[index] = '\0';
 		write(1, buffer, index);
-		count++;
+		return (1);
 	}
 	if (num < 0)
 	{
 		neg = '-';
-		count++;
 		num = -num;
 	}
 	while (num != 0)
@@ -42,10 +42,12 @@ int print_int(int num)
 		count++;
 		num /= 10;
 	}
+	buffer[index] = '\0';
 	reverse_string(buffer, index);
 	if (neg == '-')
 	{
 		write(1, &neg, 1);
+		count++;
 		write(1, buffer, index);
 	}
 	else
