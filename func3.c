@@ -10,7 +10,7 @@ int print_strings(char *str)
 
 	if (str == NULL)
 		str = "(null)";
-	while (str[len])
+	while (str[len] != '\0')
 		len++;
 	return (write(1, str, len));
 }
