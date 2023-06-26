@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		{
 			format++;
 			if (*format == '\0')
-				break;
+				return (-1);
 			count += handle_conversion(format, args);
 			if (_isflag(format))
 			{
