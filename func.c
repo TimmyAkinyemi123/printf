@@ -31,8 +31,7 @@ int print_int(int num)
 	}
 	if (num < 0)
 	{
-		buffer[index++] = '-';
-		count++
+		count  += write(1, "-", 1);
 		num = -num;
 	}
 	while (num != 0)
@@ -41,10 +40,8 @@ int print_int(int num)
 		count++;
 		num /= 10;
 	}
-	if (buffer[0] == '-')
-		reverse_string(&buffer[1], index - 1);
-	else
-		reverse_string(buffer, index);
+	reverse_string(buffer, index);
+	buffer[index] = '\0';
 	write(1, buffer, index);
 	return (count);
 }
