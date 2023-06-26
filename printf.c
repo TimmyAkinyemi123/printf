@@ -26,10 +26,6 @@ int _printf(const char *format, ...)
 				return (-1);
 			if (*format == '%')
 				count += print_percent();
-			if (*format == 'c')
-				count += print_char(va_arg(args, int));
-			else if (*format == 's')
-				count += print_strings(va_arg(args, char*));
 			count += handle_conversion(format, args);
 			if (_isflag(format))
 			{
