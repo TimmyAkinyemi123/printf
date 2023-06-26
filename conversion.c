@@ -11,8 +11,6 @@ int handle_conversion(const char *format, va_list args)
 
 	if (*format == '%')
 		count += print_percent();
-	else if (*format == ' ')
-		count += _putchar(' ');
 	else if (*format == 'c')
 		count += print_char(va_arg(args, int));
 	else if (*format == 's')
@@ -45,8 +43,6 @@ int handle_conversion(const char *format, va_list args)
 		count += handle_precision(format, args, count);
 	else if (_isdigit(*format))
 		count = handle_width(format, args, count);
-	else
-		return (-1);
 	return (count);
 }
 /**
