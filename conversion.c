@@ -43,6 +43,8 @@ int handle_conversion(const char *format, va_list args)
 		count += handle_precision(format, args, count);
 	else if (_isdigit(*format))
 		count = handle_width(format, args, count);
+	else
+		return (-1);
 	return (count);
 }
 /**
