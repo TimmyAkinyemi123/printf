@@ -15,6 +15,7 @@ int print_strings(char *str)
 		len++;
 	for (i = 0; i < len; i++)
 		buffer[i] = str[i];
+	buffer[i] = '\0';
 	return (write(1, buffer, len));
 }
 /**
