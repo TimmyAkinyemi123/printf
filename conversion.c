@@ -16,7 +16,7 @@ int handle_conversion(const char *format, va_list args)
 	else if (*format == 's')
 		count += print_strings(va_arg(args, char *));
 	else if (*format == 'S')
-		count += print_nonprintable(args);
+		count += print_nonprintable(va_arg(args, char *));
 	else if (*format == 'd' || *format == 'i')
 		count += print_int(va_arg(args, int));
 	else if (*format == 'u')

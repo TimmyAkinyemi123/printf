@@ -36,16 +36,15 @@ int print_char(char c)
 }
 /**
  * print_nonprintable - handles format specifer S
- * @args: variable argument list
+ * @str: string of characters
  * Return: count
  */
-int print_nonprintable(va_list args)
+int print_nonprintable(char *str)
 {
 	int len = 0, count, i;
-	char *str = va_arg(args, char*);
 
 	if (str == NULL)
-		str = "(nil)";
+		str = "(null)";
 	while (str[len])
 		len++;
 	for (i = 0; i < len; i++)
@@ -53,7 +52,7 @@ int print_nonprintable(va_list args)
 		if (str[i] < 32 || str[i] >= 127)
 		{
 			count += write(1, "\\x", 2);
-			count += print_hex_upper((unsigned int)str[i]);
+			count += print_hex_upper((unsigned int)(unsigned char)str[i]);
 		}
 		else
 			count += write(1, &str[i], 1);
