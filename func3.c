@@ -23,7 +23,7 @@ int print_strings(char *str)
  */
 int print_percent(void)
 {
-	return (write(1, "%%", 1));
+	return (write(1, "%%", 2));
 }
 /**
  * print_char - handle format specifer c
