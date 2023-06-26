@@ -20,7 +20,7 @@ int _putchar(char c)
 int print_int(int num)
 {
 	int index = 0, count = 0;
-	char neg = '\0', buffer[BUF_SIZE];
+	char buffer[BUF_SIZE];
 
 	if (num == 0)
 	{
@@ -31,7 +31,7 @@ int print_int(int num)
 	}
 	if (num < 0)
 	{
-		neg = '-';
+		count += write(1, "-", 1);
 		num = -num;
 	}
 	while (num != 0)
@@ -42,14 +42,7 @@ int print_int(int num)
 	}
 	buffer[index] = '\0';
 	reverse_string(buffer, index);
-	if (neg == '-')
-	{
-		write(1, &neg, 1);
-		count++;
-		write(1, buffer, index);
-	}
-	else
-		write(1, buffer, index);
+	write(1, buffer, index);
 	return (count);
 }
 
