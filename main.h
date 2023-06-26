@@ -41,7 +41,7 @@ int _printf(const char *format, ...);
 int print_percent(void);
 int print_char(char c);
 int print_strings(char *str);
-int print_nonprintable(va_list args);
+int print_nonprintable(char *str);
 int print_int(int num);
 int print_bin(unsigned int num);
 int print_unsigned_int(unsigned int num);
