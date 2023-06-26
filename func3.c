@@ -15,8 +15,7 @@ int print_strings(char *str)
 		len++;
 	for (i = 0; i < len; i++)
 		buffer[i] = str[i];
-	write(1, buffer, len);
-	return (len);
+	return (write(1, buffer, len));
 }
 /**
  * print_percent - print percent
