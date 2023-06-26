@@ -11,7 +11,7 @@ int print_strings(char *str)
 
 	if (str == NULL)
 		str = "(null)";
-	while (str[len] != '\0')
+	while (str[len] != '\0' && len < BUF_SIZE)
 		len++;
 	for (i = 0; i < len; i++)
 		buffer[i] = str[i];
