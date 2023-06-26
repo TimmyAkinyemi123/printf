@@ -17,8 +17,8 @@ int print_strings(char *str)
 	{
 		buffer[i] = str[i];
 		count++;
+		write(1, buffer, len);
 	}
-	write(1, buffer, len);
 	return (count);
 }
 /**
