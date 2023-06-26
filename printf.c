@@ -22,6 +22,15 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				return (-1);
+			if (*format == ' ')
+			{
+				while (*format == ' ')
+				{
+					_putchar(' ');
+					count++;
+					format++;
+				}
+			}
 			count += handle_conversion(format, args);
 			if (_isflag(format))
 			{
