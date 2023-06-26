@@ -23,6 +23,8 @@ int _printf(const char *format, ...)
 			if (*format == '\0')
 				return (-1);
 			count += handle_conversion(format, args);
+			if (count == -1)
+				return (-1);
 			if (_isflag(format))
 			{
 				format++;
