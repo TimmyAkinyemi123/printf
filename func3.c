@@ -10,7 +10,7 @@ int print_strings(char *str)
 	char buffer[BUF_SIZE];
 
 	if (str == NULL)
-		str = "null";
+		str = "(null)";
 	while (str[len] != '\0')
 		len++;
 	for (i = 0; i < len; i++)
@@ -44,7 +44,7 @@ int print_nonprintable(char *str)
 	int len = 0, count, i;
 
 	if (str == NULL)
-		str = "null";
+		str = "(null)";
 	while (str[len])
 		len++;
 	for (i = 0; i < len; i++)
