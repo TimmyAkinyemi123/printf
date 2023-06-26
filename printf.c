@@ -10,7 +10,7 @@ int is_len_mod(const char *format);
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int convert = 0, count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -22,7 +22,10 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == '\0')
 				return (-1);
-			count += handle_conversion(format, args);
+			convert += handle_conversion(format, args);
+			if (convert == -1)
+				return (-1);
+			count += convert;
 			if (_isflag(format))
 			{
 				format++;
