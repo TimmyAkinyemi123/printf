@@ -6,16 +6,19 @@
  */
 int print_strings(char *str)
 {
-	int i, count = 0;
+	int i, len = 0, count = 0;
 	char buffer[BUF_SIZE];
 
 	if (str == NULL)
 		str = "(null)";
-	while (str[count] != '\0')
-		count++;
-	for (i = 0; i < count; i++)
+	while (str[len] != '\0')
+		len++;
+	for (i = 0; i < len; i++)
+	{
 		buffer[i] = str[i];
-	write(1, buffer, count);
+		count++;
+	}
+	write(1, buffer, len);
 	return (count);
 }
 /**
@@ -24,8 +27,11 @@ int print_strings(char *str)
  */
 int print_percent(void)
 {
+	int count = 0;
+
 	write(1, "%%", 1);
-	return (1);
+	count++;
+	return (count);
 }
 /**
  * print_char - handle format specifer c
@@ -34,8 +40,11 @@ int print_percent(void)
  */
 int print_char(char c)
 {
+	int count = 0;
+
 	write(1, &c, 1);
-	return (1);
+	count++;
+	return (count);
 }
 /**
  * print_nonprintable - handles format specifer S
