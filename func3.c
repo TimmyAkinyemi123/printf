@@ -67,8 +67,9 @@ int print_nonprintable(char *str)
 int print_pointer(void *ptr)
 {
 	uintptr_t ptr_value = (uintptr_t)ptr;
-	int count = write(1, "0x", 2);
+	int count = 0;
 
-	count += print_hex_lower(ptr_value);
+	count += write(1, "0x", 2);
+	count += print_hex_lower((unsigned int)ptr_value);
 	return (count);
 }
