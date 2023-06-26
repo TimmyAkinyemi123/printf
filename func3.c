@@ -12,13 +12,13 @@ int print_strings(char *str)
 	if (str == NULL)
 		str = "(null)";
 	while (str[len] != '\0')
-		len++;
-	for (i = 0; i < len; i++)
 	{
-		buffer[i] = str[i];
+		len++;
 		count++;
-		write(1, buffer, len);
 	}
+	for (i = 0; i < len; i++)
+		buffer[i] = str[i];
+	write(1, buffer, len);
 	return (count);
 }
 /**
