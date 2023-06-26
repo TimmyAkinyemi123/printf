@@ -70,17 +70,18 @@ int not_ld(char len_mod, const char *format)
 int print_reversed_string(char *str)
 {
 	int count = 0, i;
-	char *ptr = str;
+	char buffer[BUF_SIZE];
 
-	while (*ptr != '\0')
-	{
+	if (str == NULL)
+		write(1, "(null)", 6);
+	while (str[count] != '\0')
 		count++;
-		ptr++;
-	}
+	for (i = 0; i < len; i++)
+		buffer[i] = str[i];
+	buffer[i] = '\0';
+	reverse_string(buffer, count);
 
-	for (i = count - 1; i >= 0; i--)
-		_putchar(str[i]);
-	return (count);
+	return (write(1, buffer, count));
 }
 /**
  * print_rot13_string - prints string in rotated 13
