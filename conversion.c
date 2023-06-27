@@ -29,6 +29,8 @@ int handle_conversion(const char *format, va_list args)
 		count += print_bin(va_arg(args, unsigned int));
 	else if (*format == 'p')
 		count += print_pointer(va_arg(args, void*));
+	else if (*format == 'r')
+		count += print_reversed_string(va_arg(args, char*));
 	else if (*format == 'R')
 		count += print_rot13_string(va_arg(args, char*));
 	else if (*format == 'l' || *format == 'h' || _isdigit(*format))

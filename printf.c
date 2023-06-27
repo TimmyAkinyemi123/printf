@@ -10,7 +10,7 @@ int is_len_mod(const char *format);
  */
 int _printf(const char *format, ...)
 {
-	int count = 0, convert = 0;
+	int count = 0;
 	va_list args;
 
 	va_start(args, format);
@@ -26,13 +26,7 @@ int _printf(const char *format, ...)
 				return (-1);
 			if (*format == '%')
 				count += print_percent();
-			convert = handle_conversion(format, args);
-			if (convert == 0)
-			{
-				_putchar(*format);
-				count++;
-			}
-			count += convert;
+			count += handle_conversion(format, args);
 			if (_isflag(format))
 			{
 				format++;
