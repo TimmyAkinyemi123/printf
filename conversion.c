@@ -9,11 +9,13 @@ int handle_conversion(const char *format, va_list args)
 {
 	int count = 0;
 
-	if (args == NULL)
+	/**
+	 * if (args == NULL)
 	{
 		count += write(1, "%%", 1);
 		count += write(1, format, 1);
 	}
+	*/
 	else
 	{
 		if (*format == 'c')
