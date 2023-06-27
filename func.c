@@ -40,8 +40,8 @@ int print_int(int num)
 		count++;
 		num /= 10;
 	}
-	reverse_string(buffer, index);
 	buffer[index] = '\0';
+	reverse_string(buffer, index);
 	write(1, buffer, index);
 	return (count);
 }
