@@ -77,6 +77,9 @@ int print_pointer(void *ptr)
 	uintptr_t ptr_value = (uintptr_t)ptr;
 	int count = 0;
 
+	if (ptr_value == NULL)
+		return (write(1, "(nil)", 5));
+
 	count += write(1, "0x", 2);
 	count += print_hex_lower((unsigned int)ptr_value);
 	return (count);
