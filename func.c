@@ -19,14 +19,14 @@ int _putchar(char c)
  */
 int print_int(int num)
 {
-	int index = 0, count = 0;
-	char buffer[BUF_SIZE];
+	int index = 0, count = 0, digit;
+	char buffer[BUF_SIZE], dig_char;
 
 	if (num == 0)
 	{
 		buffer[index++] = '0';
-		buffer[index] = '\0';
-		return (write(1, buffer, index));
+		write(1, buffer, index);
+		return (1);
 	}
 	if (num < 0)
 	{
@@ -35,12 +35,14 @@ int print_int(int num)
 	}
 	while (num != 0)
 	{
-		buffer[index++] = (num % 10) + '0';
+		digit = num % 10;
+		dig_char = digit + '0';
+		buffer[index++] = dig_char;
 		count++;
 		num /= 10;
 	}
-	reverse_string(buffer, index);
 	buffer[index] = '\0';
+	reverse_string(buffer, index);
 	write(1, buffer, index);
 	return (count);
 }
