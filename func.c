@@ -40,7 +40,6 @@ int print_int(int num)
 		num /= 10;
 	}
 	reverse_string(buffer, index);
-	buffer[index] = '\0';
 	write(1, buffer, index);
 	return (count);
 }
