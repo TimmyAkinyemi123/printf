@@ -25,7 +25,10 @@ int _printf(const char *format, ...)
 			if (*format == '\0')
 				return (-1);
 			if (*format == '%')
+			{
 				count += print_percent();
+				continue;
+			}
 			count += handle_conversion(format, args);
 			if (_isflag(format))
 			{
