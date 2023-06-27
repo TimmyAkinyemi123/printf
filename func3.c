@@ -9,8 +9,8 @@ int print_strings(char *str)
 	int i, len = 0;
 	char buffer[BUF_SIZE];
 
-	if (str == NULL) 
-		str = "(null)";
+	if (str == NULL)
+		return (write(1, "(null)", 6));
 	while (str[len] != '\0')
 		len++;
 	for (i = 0; i < len; i++)
