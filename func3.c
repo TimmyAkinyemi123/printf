@@ -55,7 +55,7 @@ int print_nonprintable(char *str)
 		return (write(1, "(null)", 6));
 	while (str[len])
 		len++;
-	for (i = 0; i < len; i++)
+	for (i = 0; i < len && len < BUF_SIZE; i++)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
