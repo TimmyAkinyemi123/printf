@@ -64,10 +64,7 @@ int print_nonprintable(char *str)
 			count += print_hex((unsigned char)str[i]);
 		}
 		else
-		{
-			buffer[i] = str[i];
-			count += write(1, buffer[i], 1);
-		}
+			count += write(1, &str[i], 1);
 	}
 	return (count);
 }
