@@ -49,13 +49,14 @@ int print_char(char c)
  */
 int print_nonprintable(char *str)
 {
-	int len = 0, count = 0, i;
+	int len = 0, count = 0, flag, i;
+	char buffer[BUF_SIZE];
 
 	if (str == NULL)
 		return (write(1, "(null)", 6));
 	while (str[len])
 		len++;
-	for (i = 0; i < len && len < BUF_SIZE; i++)
+	for (i = 0; i < len; i++)
 	{
 		if (str[i] < 32 || str[i] >= 127)
 		{
@@ -63,7 +64,16 @@ int print_nonprintable(char *str)
 			count += print_hex((unsigned char)str[i]);
 		}
 		else
-			count += write(1, &str[i], 1);
+		{
+			buffer[count] = str[i];
+			count++;
+			flag = 1;
+		}
+	}
+	if (flag == 1)
+	{
+		buffer[count] = '\0';
+		count += write(1, buffer, count);
 	}
 	return (count);
 }
