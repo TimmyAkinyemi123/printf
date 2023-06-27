@@ -39,7 +39,10 @@ int handle_conversion(const char *format, va_list args)
 	else if (_isflag(format))
 		count += handle_flags(format, args, count);
 	else
-		return (0);
+	{
+		count += _putchar('%');
+		count += _putchar(*format);
+	}
 	return (count);
 }
 /**
