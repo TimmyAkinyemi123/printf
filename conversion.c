@@ -9,47 +9,35 @@ int handle_conversion(const char *format, va_list args)
 {
 	int count = 0;
 
-	/**
-	 * if (args == NULL)
-	{
-		count += write(1, "%%", 1);
-		count += write(1, format, 1);
-	}
-	*/
+	if (*format == 'c')
+		count += print_char(va_arg(args, int));
+	else if (*format == 's')
+		count += print_strings(va_arg(args, char*));
+	else if (*format == 'S')
+		count += print_nonprintable(va_arg(args, char*));
+	else if (*format == 'd' || *format == 'i')
+		count += print_int(va_arg(args, int));
+	else if (*format == 'u')
+		count += print_unsigned_int(va_arg(args, unsigned int));
+	else if (*format == 'o')
+		count += print_octal(va_arg(args, unsigned int));
+	else if (*format == 'x')
+		count += print_hex_lower(va_arg(args, unsigned int));
+	else if (*format == 'X')
+		count += print_hex_upper(va_arg(args, unsigned int));
+	else if (*format == 'b')
+		count += print_bin(va_arg(args, unsigned int));
+	else if (*format == 'p')
+		count += print_pointer(va_arg(args, void*));
+	else if (*format == 'R')
+		count += print_rot13_string(va_arg(args, char*));
+	else if (*format == 'l' || *format == 'h' || _isdigit(*format))
+		count = (*format == '.' ? handle_precision(format, args, count) :
+				handle_len_mod(*format, format, args, count));
+	else if (_isflag(format))
+		count += handle_flags(format, args, count);
 	else
-	{
-		if (*format == 'c')
-			count += print_char(va_arg(args, int));
-		else if (*format == 's')
-			count += print_strings(va_arg(args, char*));
-		else if (*format == 'S')
-			count += print_nonprintable(va_arg(args, char*));
-		else if (*format == 'd' || *format == 'i')
-			count += print_int(va_arg(args, int));
-		else if (*format == 'u')
-			count += print_unsigned_int(va_arg(args, unsigned int));
-		else if (*format == 'o')
-			count += print_octal(va_arg(args, unsigned int));
-		else if (*format == 'x')
-			count += print_hex_lower(va_arg(args, unsigned int));
-		else if (*format == 'X')
-			count += print_hex_upper(va_arg(args, unsigned int));
-		else if (*format == 'b')
-			count += print_bin(va_arg(args, unsigned int));
-		else if (*format == 'p')
-			count += print_pointer(va_arg(args, void*));
-		else if (*format == 'r')
-			count += print_reversed_string(va_arg(args, char*));
-		else if (*format == 'R')
-			count += print_rot13_string(va_arg(args, char*));
-		else if (*format == 'l' || *format == 'h' || _isdigit(*format))
-			count = (*format == '.' ? handle_precision(format, args, count) :
-					handle_len_mod(*format, format, args, count));
-		else if (_isflag(format))
-			count += handle_flags(format, args, count);
-		else
-			return(-1);
-	}
+		return (0);
 	return (count);
 }
 /**
