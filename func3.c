@@ -26,7 +26,7 @@ int print_percent(void)
 {
 	int count = 0;
 
-	write(1, "%%", 1);
+	write(1, "%", 1);
 	count++;
 	return (count);
 }
