@@ -50,7 +50,6 @@ int print_char(char c)
 int print_nonprintable(char *str)
 {
 	int len = 0, count, i;
-	char buffer[BUF_SIZE];
 
 	if (str == NULL)
 		return (write(1, "(null)", 6));
