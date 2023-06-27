@@ -6,17 +6,17 @@
  */
 int print_strings(char *str)
 {
-	int i, len = 0;
+	int i, count = 0;
 	char buffer[BUF_SIZE];
 
 	if (str == NULL)
-		str = "(null)";
-	while (str[len] != '\0' && len < BUF_SIZE)
-		len++;
-	for (i = 0; i < len; i++)
+		write(1, "(null)", 6);
+	while (str[count] != '\0' && count < BUF_SIZE)
+		count++;
+	for (i = 0; i < count; i++)
 		buffer[i] = str[i];
 	buffer[i] = '\0';
-	return (write(1, buffer, len));
+	return (write(1, buffer, count));
 }
 /**
  * print_percent - print percent
@@ -52,7 +52,7 @@ int print_nonprintable(char *str)
 	int len = 0, count, i;
 
 	if (str == NULL)
-		str = "(null)";
+		write(1, "(null)", 6);
 	while (str[len])
 		len++;
 	for (i = 0; i < len; i++)
