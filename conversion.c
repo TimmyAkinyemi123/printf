@@ -17,7 +17,7 @@ int handle_conversion(const char *format, va_list args)
 	else
 	{
 		if (*format == 'c')
-			count += print_char(args);
+			count += print_char(char c);
 		else if (*format == 's')
 			count += print_strings(va_arg(args, char*));
 		else if (*format == 'S')

@@ -35,16 +35,11 @@ int print_percent(void)
  * @c: character
  * Return: 1 for single charater printed
  */
-int print_char(va_list args)
-{
-	char c = va_arg(args, int);
-	int count = 0;
+int print_char(char c)
+{	int count = 0;
 
-	if (c ! = NULL)
-	{
-		write(1, &c, 1);
-		count++;
-	}
+	write(1, &c, 1);
+	count++;
 	return (count);
 }
 /**
