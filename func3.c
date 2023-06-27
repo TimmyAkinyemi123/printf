@@ -50,7 +50,6 @@ int print_char(char c)
 int print_nonprintable(char *str)
 {
 	int len = 0, count = 0, flag, i;
-	char buffer[BUF_SIZE];
 
 	if (str == NULL)
 		return (write(1, "(null)", 6));
@@ -64,16 +63,7 @@ int print_nonprintable(char *str)
 			count += print_hex((unsigned char)str[i]);
 		}
 		else
-		{
-			buffer[count] = str[i];
-			count++;
-			flag = 1;
-		}
-	}
-	if (flag == 1)
-	{
-		buffer[count] = '\0';
-		count += write(1, buffer, count);
+			count += write(1, &str[i], 1);
 	}
 	return (count);
 }
