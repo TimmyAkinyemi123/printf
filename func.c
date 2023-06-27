@@ -21,6 +21,7 @@ int print_int(int num)
 {
 	int index = 0, count = 0, digit;
 	char buffer[BUF_SIZE], dig_char;
+	bool is_negative = false;
 
 	if (num == 0)
 	{
@@ -30,8 +31,8 @@ int print_int(int num)
 	}
 	if (num < 0)
 	{
-		count  += write(1, "-", 1);
 		num = -num;
+		is_negative = true;
 	}
 	while (num != 0)
 	{
@@ -40,6 +41,11 @@ int print_int(int num)
 		buffer[index++] = dig_char;
 		count++;
 		num /= 10;
+	}
+	if (is_negative)
+	{
+		buffer[index++] = '-';
+		count++;
 	}
 	buffer[index] = '\0';
 	reverse_string(buffer, index);
