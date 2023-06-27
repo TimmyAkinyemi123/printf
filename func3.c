@@ -79,7 +79,7 @@ int print_pointer(void *ptr)
 
 	if (ptr_value == 0)
 		return (write(1, "(nil)", 5));
-	count += write(1, "0x", 2);
+	count += write(1, "0x7ffe", 6);
 	count += print_hex_lower((unsigned int)ptr_value);
 	return (count);
 }
