@@ -26,8 +26,7 @@ int print_int(int num)
 	{
 		buffer[index++] = '0';
 		buffer[index] = '\0';
-		write(1, buffer, index);
-		return (1);
+		return (write(1, buffer, index));
 	}
 	if (num < 0)
 	{
