@@ -52,5 +52,4 @@ int print_pointer(void *ptr);
 int print_rot13_string(char *str);
 int print_reversed_string(char *str);
 int print_hex(unsigned int num);
-
 #endif
