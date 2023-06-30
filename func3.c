@@ -11,7 +11,7 @@ int print_strings(char *str)
 
 	if (str == NULL)
 		return (write(1, "(null)", 6));
-	while (str[len] != '\0' && len < BUF_SIZE)
+	while (str[len] != '\0')
 		len++;
 	for (i = 0; i < len; i++)
 		buffer[i] = str[i];
@@ -60,7 +60,7 @@ int print_nonprintable(char *str)
 		if (str[i] < 32 || str[i] >= 127)
 		{
 			count += write(1, "\\x", 2);
-			count += print_hex((unsigned int)str[i]);
+			count += print_hex((unsigned int)(unsigned char)str[i]);
 		}
 		else
 			count += write(1, &str[i], 1);
