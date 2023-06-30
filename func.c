@@ -44,6 +44,7 @@ int print_int(long num)
 		buffer[index++] = '-';
 		count++;
 	}
+	buffer[index] = '\0';
 	reverse_string(buffer, index);
 	write(1, buffer, index);
 	return (count);

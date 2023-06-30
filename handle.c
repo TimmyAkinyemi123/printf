@@ -41,7 +41,7 @@ int handle_flags(const char *format, va_list args, int count)
 		}
 	}
 	else
-		return (-1);
+		return (0);
 	return (count);
 }
 
