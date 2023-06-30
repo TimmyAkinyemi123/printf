@@ -10,7 +10,7 @@ int print_strings(char *str)
 	char buffer[BUF_SIZE];
 
 	if (str == NULL)
-		str  = "(null)";
+		return (write(1, "(null)", 6));
 	while (str[len] != '\0' && len < BUF_SIZE)
 		len++;
 	for (i = 0; i < len; i++)
