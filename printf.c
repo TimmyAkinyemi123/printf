@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 				return (-1);
 			if (*format == '%')
 				count += print_percent();
-			convert += handle_conversion(format, args);
+			convert = handle_conversion(format, args);
 			if (convert == 0)
 				count += _putchar(*format);
 			else

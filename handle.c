@@ -13,7 +13,8 @@ int handle_flags(const char *format, va_list args, int count)
 	int num;
 	unsigned int oct, hex;
 
-	if (*format == '+' || *format == ' ')
+	if ((*format == '+' || *format == ' ') && *(format + 1) == 'd' ||
+			*(format + 1) == 'i')
 	{
 		format++;
 		num = va_arg(args, int);
@@ -40,8 +41,6 @@ int handle_flags(const char *format, va_list args, int count)
 			count += *format == 'x' ? print_hex_lower(hex) : print_hex_upper(hex);
 		}
 	}
-	else
-		return (0);
 	return (count);
 }
 
