@@ -75,12 +75,11 @@ int print_nonprintable(char *str)
  */
 int print_pointer(va_list args)
 {
-	void *ptr = va_arg(args, void*);
-	uintptr_t ptr_value = (uintptr_t)ptr;
+	void *ptr_value = va_arg(args, void*);
 	int count = 0;
 
 	if (ptr_value == 0)
-		return (write(1, "(nil)", 5));
+		return (write(1, "(null)", 6));
 	count += write(1, "0x", 2);
 	count += print_hex_lower((unsigned long)ptr_value);
 	return (count);

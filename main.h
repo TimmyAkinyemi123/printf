@@ -46,10 +46,10 @@ int print_int(long num);
 int print_bin(unsigned int num);
 int print_unsigned_int(unsigned int num);
 int print_octal(unsigned int num);
-int print_hex_lower(unsigned int num);
+int print_hex_lower(unsigned long num);
 int print_hex_upper(unsigned int num);
 int print_pointer(va_list args);
 int print_rot13_string(char *str);
 int print_reversed_string(char *str);
-int print_hex(unsigned int num);
+int print_hex(unsigned long num);
 #endif

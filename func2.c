@@ -95,7 +95,7 @@ int print_octal(unsigned int num)
  * @num: unsigned integer
  * Return: count
  */
-int print_hex_lower(unsigned int num)
+int print_hex_lower(unsigned long num)
 {
 	int count = 0, index = 0, digit;
 	char buffer[BUF_SIZE], dig_char;

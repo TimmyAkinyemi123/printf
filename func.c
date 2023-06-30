@@ -74,7 +74,7 @@ void reverse_string(char *str, int length)
  * @num: unsigned integer
  * Return: count
  */
-int print_hex(unsigned int num)
+int print_hex(unsigned long num)
 {
 	int count = 0, index = 0, digit;
 	char buffer[BUF_SIZE], dig_char;
