@@ -31,6 +31,19 @@ int _printf(const char *format, ...)
 				count += _putchar(*format);
 			else
 				count += convert;
+			if (_isflag(format))
+			{
+				format++;
+				if (_isdigit(*format))
+				{
+					count += handle_width(format, args, count);
+					format++;
+				}
+			}
+			else if ((_isdigit(*format) && *format != 0) || is_len_mod(format))
+				format++;
+			else if (*format == '.' && _isdigit(*(format + 2)))
+				format++;
 		}
 		else
 			count += _putchar(*format);
