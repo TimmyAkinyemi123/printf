@@ -7,7 +7,7 @@
  */
 int handle_conversion(const char *format, va_list args)
 {
-	int count = 0;
+	int count = 0, flag = 0;
 
 	if (*format == 'c')
 		count += print_char(va_arg(args, int));
@@ -28,7 +28,7 @@ int handle_conversion(const char *format, va_list args)
 	else if (*format == 'b')
 		count += print_bin(va_arg(args, unsigned int));
 	else if (*format == 'p')
-		count += print_pointer(va_arg(args, void*));
+		count += print_pointer(args);
 	else if (*format == 'r')
 		count += print_reversed_string(va_arg(args, char*));
 	else if (*format == 'R')
@@ -37,9 +37,15 @@ int handle_conversion(const char *format, va_list args)
 		count = (*format == '.' ? handle_precision(format, args, count) :
 				handle_len_mod(*format, format, args, count));
 	else if (_isflag(format))
-		count += handle_flags(format, args, count);
+	{
+		flag = handle_flags(format, args, count);
+		if (flag == -1)
+			count = -1;
+		else
+			count += flag;
+	}
 	else
-		return (0);
+		count = -1;
 	return (count);
 }
 /**

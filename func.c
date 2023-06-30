@@ -1,6 +1,6 @@
 #include "main.h"
 
-int print_int(int num);
+int print_int(long num);
 void reverse_string(char *str, int length);
 /**
  * _putchar - prints characters
@@ -17,7 +17,7 @@ int _putchar(char c)
  * @num: number
  * Return: count
  */
-int print_int(int num)
+int print_int(long num)
 {
 	int index = 0, count = 0, neg = 0;
 	char buffer[BUF_SIZE];
@@ -44,12 +44,10 @@ int print_int(int num)
 		buffer[index++] = '-';
 		count++;
 	}
-	buffer[index] = '\0';
 	reverse_string(buffer, index);
 	write(1, buffer, index);
 	return (count);
 }
-
 /**
  * reverse_string - functions reverses rhe order of characters in given string
  * @str: function parameter providing strings

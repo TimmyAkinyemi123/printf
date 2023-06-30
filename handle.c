@@ -40,6 +40,8 @@ int handle_flags(const char *format, va_list args, int count)
 			count += *format == 'x' ? print_hex_lower(hex) : print_hex_upper(hex);
 		}
 	}
+	else
+		return (-1);
 	return (count);
 }
 

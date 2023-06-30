@@ -69,17 +69,18 @@ int print_nonprintable(char *str)
 }
 /**
  * print_pointer - handle format specifier p
- * @ptr: pointer to variable of any data type
+ * @args: variable argument list
  * Return: 2
  */
-int print_pointer(void *ptr)
+int print_pointer(va_list args)
 {
+	void *ptr = va_arg(args, void*);
 	uintptr_t ptr_value = (uintptr_t)ptr;
 	int count = 0;
 
 	if (ptr_value == 0)
 		return (write(1, "(nil)", 5));
-	count += write(1, "0x7ffe", 6);
-	count += print_hex_lower((unsigned int)ptr_value);
+	count += write(1, "0x", 2);
+	count += print_hex_lower((unsigned long)ptr_value);
 	return (count);
 }
