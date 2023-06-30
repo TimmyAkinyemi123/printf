@@ -60,7 +60,7 @@ int print_nonprintable(char *str)
 		if (str[i] < 32 || str[i] >= 127)
 		{
 			count += write(1, "\\x", 2);
-			count += print_hex((unsigned char)str[i]);
+			count += print_hex((unsigned int)str[i]);
 		}
 		else
 			count += write(1, &str[i], 1);
