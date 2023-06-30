@@ -38,8 +38,6 @@ int handle_conversion(const char *format, va_list args)
 				handle_len_mod(*format, format, args, count));
 	else if (_isflag(format))
 		count += handle_flags(format, args, count);
-	else
-		return (0);
 	return (count);
 }
 /**
