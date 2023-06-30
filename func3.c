@@ -79,7 +79,7 @@ int print_pointer(va_list args)
 	int count = 0;
 
 	if (ptr_value == 0)
-		return (write(1, "(null)", 6));
+		return (write(1, "(nil)", 5));
 	count += write(1, "0x", 2);
 	count += print_hex_lower((unsigned long)ptr_value);
 	return (count);
