@@ -13,8 +13,8 @@ int handle_flags(const char *format, va_list args, int count)
 	int num;
 	unsigned int oct, hex;
 
-	if ((*format == '+' || *format == ' ') && *(format + 1) == 'd' ||
-			*(format + 1) == 'i')
+	if ((*format == '+' || *format == ' ') && (*(format + 1) == 'd' ||
+			*(format + 1) == 'i'))
 	{
 		format++;
 		num = va_arg(args, int);
